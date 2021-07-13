@@ -8,13 +8,10 @@ import java.util.List;
 
 @Entity
 public class Owner {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ownerId;
-
     private String name;
-
     @JsonManagedReference(value = "owner")
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Building> buildings = new ArrayList<>();

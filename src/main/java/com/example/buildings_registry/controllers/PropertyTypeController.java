@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class PropertyTypeController {
-
     @Autowired
     private PropertyTypeService propertyTypeService;
 

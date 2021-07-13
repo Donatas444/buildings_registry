@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class OwnerService {
-
     @Autowired
     private OwnerRepository ownerRepository;
 
@@ -27,12 +26,12 @@ public class OwnerService {
         return (List<Owner>) ownerRepository.findAll();
     }
 
-    public Owner getOwnerById(Long id) {
+    public Owner getOwnerById(Long id) throws NullPointerException {
         Optional<Owner> owner = ownerRepository.findById(id);
         if (owner.isPresent()) {
             return owner.get();
         } else {
-            throw new RuntimeException("Owner not found: " + id);
+            throw new NullPointerException("Owner not found: " + id);
         }
     }
 }

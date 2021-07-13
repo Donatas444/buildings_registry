@@ -56,7 +56,7 @@ class BuildingControllerTest {
     }
 
     @Test
-    void getBuilding() throws Throwable {
+    void getBuilding() {
         Building building1 = new Building();
         Building building2 = new Building();
         List<Building> buildings = new ArrayList<>();

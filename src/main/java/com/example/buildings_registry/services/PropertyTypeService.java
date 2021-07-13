@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class PropertyTypeService {
-
     @Autowired
     private PropertyTypeRepository propertyTypeRepository;
 
@@ -27,12 +26,12 @@ public class PropertyTypeService {
         return (List<PropertyType>) propertyTypeRepository.findAll();
     }
 
-    public PropertyType getPropertyTypeById(Long id) {
+    public PropertyType getPropertyTypeById(Long id) throws NullPointerException {
         Optional<PropertyType> propertyType = propertyTypeRepository.findById(id);
         if (propertyType.isPresent()) {
             return propertyType.get();
         } else {
-            throw new RuntimeException("Property type not found: " + id);
+            throw new NullPointerException("Property type not found: " + id);
         }
     }
 }

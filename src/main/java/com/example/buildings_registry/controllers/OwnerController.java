@@ -14,7 +14,6 @@ public class OwnerController {
 
     @Autowired
     private CalculationsService calculationsService;
-
     @Autowired
     private OwnerService ownerService;
 

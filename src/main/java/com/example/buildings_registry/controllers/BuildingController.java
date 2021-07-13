@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class BuildingController {
-
     @Autowired
     private BuildingService buildingService;
 
@@ -45,7 +44,7 @@ public class BuildingController {
     }
 
     @GetMapping("/building/{id}")
-    public Building getBuilding(@PathVariable("id") Long id) throws Throwable {
+    public Building getBuilding(@PathVariable("id") Long id) {
         return buildingService.getBuildingById(id);
     }
 }

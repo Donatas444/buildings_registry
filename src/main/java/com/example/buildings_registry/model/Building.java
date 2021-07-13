@@ -9,18 +9,15 @@ public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long buildingId;
-
     private String city;
     private String street;
     private String number;
     private double sizeInSquareMeters;
     private int value;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ownerId")
     @JsonBackReference(value = "owner")
     private Owner owner;
-
     @ManyToOne
     @JoinColumn(name = "propertyTypeId")
     @JsonBackReference(value = "propertyType")

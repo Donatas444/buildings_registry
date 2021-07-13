@@ -9,7 +9,6 @@ import java.util.List;
 
 @Repository
 public interface BuildingRepository extends CrudRepository<Building, Long> {
-
     @Query(value = "SELECT * FROM building WHERE building.owner_id = :owner_id", nativeQuery = true)
     List<Building> findAllBuildingsByOwner(Long ownerId);
 }

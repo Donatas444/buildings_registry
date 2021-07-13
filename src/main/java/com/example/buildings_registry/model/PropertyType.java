@@ -8,11 +8,9 @@ import java.util.List;
 
 @Entity
 public class PropertyType {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long propertyTypeId;
-
     private String type;
     private double taxPercentage;
 

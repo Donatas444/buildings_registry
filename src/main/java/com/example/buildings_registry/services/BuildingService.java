@@ -14,16 +14,12 @@ import java.util.Optional;
 
 @Service
 public class BuildingService {
-
     @Autowired
     private BuildingRepository buildingRepository;
-
     @Autowired
     private OwnerRepository ownerRepository;
-
     @Autowired
     private PropertyTypeRepository propertyTypeRepository;
-
 
     public Building addBuilding(Building building, Long propertyTypeId) {
         PropertyType propertyType = propertyTypeRepository.findById(propertyTypeId).orElse(new PropertyType());
@@ -50,12 +46,12 @@ public class BuildingService {
         return (List<Building>) buildingRepository.findAll();
     }
 
-    public Building getBuildingById(Long id) {
+    public Building getBuildingById(Long id) throws NullPointerException {
         Optional<Building> building = buildingRepository.findById(id);
         if (building.isPresent()) {
             return building.get();
         } else {
-            throw new RuntimeException("Building not found: " + id);
+            throw new NullPointerException("Building not found: " + id);
         }
     }
 }

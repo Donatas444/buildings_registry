@@ -19,13 +19,10 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class PropertyTypeControllerTest {
-
     @Mock
     PropertyTypeService propertyTypeService;
-
     @InjectMocks
     PropertyTypeController propertyTypeController = new PropertyTypeController();
-
     MockMvc mockMvc;
 
     @Before
@@ -35,51 +32,34 @@ class PropertyTypeControllerTest {
 
     @Test
     void addPropertyType() {
-
         PropertyType propertyType = new PropertyType();
-
         when(propertyTypeService.addPropertyType(propertyType)).thenReturn(propertyType);
-
         propertyType = propertyTypeController.addPropertyType(propertyType);
-
         Assert.assertNotNull(propertyType);
     }
 
-
     @Test
     void getAllPropertyTypes() {
-
         PropertyType propertyType1 = new PropertyType();
         PropertyType propertyType2 = new PropertyType();
-
-
         List<PropertyType> propertyTypes = new ArrayList<>();
         propertyTypes.add(propertyType1);
         propertyTypes.add(propertyType2);
-
         when(propertyTypeService.getAllPropertyTypes()).thenReturn(propertyTypes);
-
         List<PropertyType> result = propertyTypeController.getAllPropertyTypes();
-
         Assert.assertEquals(result.size(), 2);
         Assert.assertNotNull(result);
     }
-
 
     @Test
     void getPropertyById() {
         PropertyType propertyType1 = new PropertyType();
         PropertyType propertyType2 = new PropertyType();
-
         List<PropertyType> propertyTypes = new ArrayList<>();
         propertyTypes.add(propertyType1);
         propertyTypes.add(propertyType2);
-
         when(propertyTypeService.getPropertyTypeById(1L)).thenReturn(propertyType1);
-
-
         PropertyType result = propertyTypeController.getPropertyById(1L);
-
         Assert.assertEquals(result, propertyType1);
     }
 }
