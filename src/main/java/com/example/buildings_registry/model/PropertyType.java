@@ -13,7 +13,7 @@ public class PropertyType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long propertyTypeId;
 
-    private String propertyType;
+    private String type;
     private double taxPercentage;
 
     @JsonManagedReference(value = "propertyType")
@@ -28,12 +28,12 @@ public class PropertyType {
         this.propertyTypeId = propertyTypeId;
     }
 
-    public String getPropertyType() {
-        return propertyType;
+    public String getType() {
+        return type;
     }
 
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public double getTaxPercentage() {

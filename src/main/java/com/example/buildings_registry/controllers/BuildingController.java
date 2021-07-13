@@ -45,7 +45,7 @@ public class BuildingController {
     }
 
     @GetMapping("/building/{id}")
-    public Building getBuilding(@PathVariable("id") Long id) {
+    public Building getBuilding(@PathVariable("id") Long id) throws Throwable {
         return buildingService.getBuildingById(id);
     }
 }

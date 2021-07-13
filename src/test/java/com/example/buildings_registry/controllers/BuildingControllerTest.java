@@ -38,15 +38,11 @@ class BuildingControllerTest {
 
         Building building1 = new Building();
         Building building2 = new Building();
-
         List<Building> buildings = new ArrayList<>();
         buildings.add(building1);
         buildings.add(building2);
-
         when(buildingService.getAllBuildings()).thenReturn(buildings);
-
         List<Building> result = buildingController.getAllBuildings();
-
         Assert.assertEquals(result.size(), 2);
         Assert.assertNotNull(result);
     }
@@ -54,28 +50,20 @@ class BuildingControllerTest {
     @Test
     void addBuilding() {
         Building building = new Building();
-
-        when(buildingService.addBuilding(building,1L)).thenReturn(building);
-
+        when(buildingService.addBuilding(building, 1L)).thenReturn(building);
         building = buildingController.addBuilding(building, 1L);
-
         Assert.assertNotNull(building);
     }
 
     @Test
-    void getBuilding() {
+    void getBuilding() throws Throwable {
         Building building1 = new Building();
         Building building2 = new Building();
-
         List<Building> buildings = new ArrayList<>();
         buildings.add(building1);
         buildings.add(building2);
-
         when(buildingService.getBuildingById(1L)).thenReturn((building1));
-
-
         Building result = buildingController.getBuilding(1L);
-
         Assert.assertEquals(result, building1);
     }
 }

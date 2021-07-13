@@ -9,22 +9,16 @@ import java.util.List;
 
 @Service
 public class CalculationsService {
-
     @Autowired
     private BuildingRepository buildingRepository;
 
-
     public double getTax(Long id) {
         List<Building> buildings = buildingRepository.findAllBuildingsByOwner(id);
-
-
         double result = 0;
         for (Building building : buildings) {
-            result += building.getValue() / 100 * building.getPropertyType().getTaxPercentage();
-
+            result += (double) building.getValue() / 100 * building.getPropertyType().getTaxPercentage();
             if (building.getValue() < 100) {
                 result += 1;
-                continue;
             }
         }
         return result;
